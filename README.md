@@ -6,3 +6,7 @@
 example:
 random() //隨機選擇牌
 # 含式
+id="add-card" //加牌
+id="stop-add-card" //停止加牌
+id="quit" //投降
+id="newgame" //新的一局
