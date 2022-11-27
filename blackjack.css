@@ -1,3 +1,5 @@
-h1{
-    color: rgb(122, 28, 156);
+#dealer-cards{
+    weight: 50px;
+    height: auto;
+    margin: 1px;
 }
