@@ -1,6 +1,12 @@
+.title{
+    text-align: center;
+}
+body{
+    position: relative;
+    text-align: center;
+}
 nav{
     background-color: bisque;
-    text-align: center;
 }
 nav a{
     color: black;
@@ -16,6 +22,7 @@ nav a:hover{
     
     height: 180px;
     margin: auto;
+    padding: 5px;
 }
 button{
     font-size: x-large;
@@ -23,5 +30,5 @@ button{
     margin: 10px;
 }
 div button:hover{
-    background-color: bisque;
+    background-color: rgb(196, 255, 219);
 }
