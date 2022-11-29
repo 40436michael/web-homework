@@ -7,21 +7,21 @@ let playerACount = 0;
 let points =["1","2","3","4","5","6","7","8","9","10","11","12","13"];
 let types=["C","D","H","S"];
 
-let chosecard;
+let choseCard;
 let deck;
 
-let canHit = ture;
+let canHit = true;
 
 window.onload = function(){
     buildDeck();
     shuffleDeck();
-    dealcard();
+    dealCard();
 }
 
 function buildDeck(){
     for(let i = 0; i < types.length ; i++){
         for(let j = 0; j < points.length; j++){
-            deck.push(points[j] + "-" types[i]);
+            deck.push(points[j] + "-" +types[i]);
         }
     }
 }
@@ -35,25 +35,25 @@ function shuffleDeck(){ //交換洗牌法
     }
 }
 
-function dealcard(){
+function dealCard(){
     //暗牌
-    chosecard = deck.pop();
-    dealerSum = dealerSum + getvalue(chosecard);
-    dealerACount = dealerACount + checkA(chosecard);
+    choseCard = deck.pop();
+    dealerSum = dealerSum + getValue(choseCard);
+    dealerACount = dealerACount + checkA(choseCard);
     //暗牌
     while(dealerSum < 17){   //發到比17大
         let cardImg = document.createElement("img");
-        let card = deck.pop;
+        let card = deck.pop();
         cardImg.src = "./cards/" + card + ".png";
-        dealerSum = dealerSum + getvalue(card);
+        dealerSum = dealerSum + getValue(card);
         dealerACount = dealerACount + checkA(card);
         document.getElementById("dealer-card").append(cardImg);
    }
    for(let i=0; i<2; i++){//先發給玩家2張
         let cardImg = document.createElement("img");
-        let card = deck.pop;
+        let card = deck.pop();
         cardImg.src = "./cards/" + card + ".png";
-        playerSum = playerSum + getvalue(card);
+        playerSum = playerSum + getValue(card);
         playerACount = playerACount + checkA(card);
         document.getElementById("player-card").append(cardImg);
    }
@@ -69,9 +69,9 @@ function click(){
     }
     //加牌
     let cardImg = document.createElement("img");
-    let card = deck.pop;
+    let card = deck.pop();
     cardImg.src = "./cards/" + card + ".png";
-    playerSum = playerSum + getvalue(card);
+    playerSum = playerSum + getValue(card);
     playerACount = playerACount + checkA(card);
     document.getElementById("player-card").append(cardImg);
     //加牌
@@ -97,7 +97,7 @@ function changeAce(playerSum,playerACount){
     return playerSum;
 }
 
-function getvalue(card){
+function getValue(card){
     let data = card.split("-");
     let value = data[0];
     if(value == "1"){
