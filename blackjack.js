@@ -8,11 +8,11 @@ let points =["1","2","3","4","5","6","7","8","9","10","11","12","13"];
 let types=["C","D","H","S"];
 
 let choseCard;
-let deck;
+var deck=[];
 
 let canHit = true;
 
-window.onload = function(){
+window.onload=function(){
     buildDeck();
     shuffleDeck();
     dealCard();
@@ -21,7 +21,7 @@ window.onload = function(){
 function buildDeck(){
     for(let i = 0; i < types.length ; i++){
         for(let j = 0; j < points.length; j++){
-            deck.push(points[j] + "-" +types[i]);
+            deck.push(points[j] + "-" + types[i]);
         }
     }
 }
