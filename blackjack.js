@@ -59,11 +59,11 @@ function dealCard(){
    }
 }
 //檢查有沒有按到加牌
-document.getElementById("add-card").addEventListener("add-card",click);
+document.getElementById("add-card").addEventListener("click",hit);
 //檢查有沒有按到停牌
-document.getElementById("stop-add-card").addEventListener("stop-add-card",stop);
+//document.getElementById("stop-add-card").addEventListener("click",stop);
 
-function click(){
+function hit(){
     if(canHit == false){ //如果超過21點就不能按加
         return;            
     }
@@ -80,12 +80,6 @@ function click(){
     }
 }
 
-function stop (){
-    
-    
-
-
-}
 
 
 
