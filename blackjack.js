@@ -59,12 +59,12 @@ function dealCard(){
    }
 }
 //檢查有沒有按到加牌
-document.getElementById("add-card").addEventListener("click",hit);
+//document.getElementById("add-card").addEventListener("click",hit);
 //檢查有沒有按到停牌
 //document.getElementById("stop-add-card").addEventListener("click",stop);
-
-function hit(){
-    if(canHit == false){ //如果超過21點就不能按加
+var btn = document.getElementById("add-card");
+btn.onclick = function(){
+    if(!canHit ){ //如果超過21點就不能按加
         return;            
     }
     //加牌
@@ -79,13 +79,29 @@ function hit(){
         canHit = false;
     }
 }
-
+/*function hit(){
+    if(!canHit ){ //如果超過21點就不能按加
+        return;            
+    }
+    //加牌
+    let cardImg = document.createElement("img");
+    let card = deck.pop();
+    cardImg.src = "./cards/" + card + ".png";
+    playerSum = playerSum + getValue(card);
+    playerACount = playerACount + checkA(card);
+    document.getElementById("player-card").append(cardImg);
+    //加牌
+    if(changeAce(playerSum,playerACount) > 21){//超過21點將Ace算做1
+        canHit = false;
+    }
+}
+*/
 
 
 
 function changeAce(playerSum,playerACount){
     while(playerSum > 21 && playerACount > 0){
-        playerACount--;
+        playerACount-=1;
         playerSum-=10;
     }
     return playerSum;
