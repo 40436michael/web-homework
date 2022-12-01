@@ -10,7 +10,7 @@ let types=["C","D","H","S"];
 let choseCard;
 var deck=[];
 
-let canHit = true;
+var canHit = true;
 
 window.onload=function(){
     buildDeck();
@@ -34,10 +34,11 @@ function shuffleDeck(){ //交換洗牌法
         deck[change] = storeNum;
     }
 }
-
+console.log(deck);
 function dealCard(){
     //暗牌
     choseCard = deck.pop();
+    //console.log(choseCard);
     dealerSum = dealerSum + getValue(choseCard);
     dealerACount = dealerACount + checkA(choseCard);
     //暗牌
@@ -56,55 +57,85 @@ function dealCard(){
         playerSum = playerSum + getValue(card);
         playerACount = playerACount + checkA(card);
         document.getElementById("player-card").append(cardImg);
+        
    }
+   console.log(getValue(choseCard));
+   document.getElementById("add-card").addEventListener("click",hit);
+   document.getElementById("stop-add-card").addEventListener("click",stop);
 }
-//檢查有沒有按到加牌
-//document.getElementById("add-card").addEventListener("click",hit);
+
 //檢查有沒有按到停牌
 //document.getElementById("stop-add-card").addEventListener("click",stop);
-var btn = document.getElementById("add-card");
-btn.onclick = function(){
-    if(!canHit ){ //如果超過21點就不能按加
-        return;            
+
+
+
+function hit(){
+    if (!canHit) {
+        return;
     }
     //加牌
     let cardImg = document.createElement("img");
     let card = deck.pop();
     cardImg.src = "./cards/" + card + ".png";
-    playerSum = playerSum + getValue(card);
-    playerACount = playerACount + checkA(card);
+    playerSum += getValue(card);
+    playerACount += checkA(card);
     document.getElementById("player-card").append(cardImg);
     //加牌
-    if(changeAce(playerSum,playerACount) > 21){//超過21點將Ace算做1
-        canHit = false;
-    }
-}
-/*function hit(){
-    if(!canHit ){ //如果超過21點就不能按加
-        return;            
-    }
-    //加牌
-    let cardImg = document.createElement("img");
-    let card = deck.pop();
-    cardImg.src = "./cards/" + card + ".png";
-    playerSum = playerSum + getValue(card);
-    playerACount = playerACount + checkA(card);
-    document.getElementById("player-card").append(cardImg);
-    //加牌
-    if(changeAce(playerSum,playerACount) > 21){//超過21點將Ace算做1
-        canHit = false;
-    }
-}
-*/
-
-
-
-function changeAce(playerSum,playerACount){
+    /*
     while(playerSum > 21 && playerACount > 0){
-        playerACount-=1;
         playerSum-=10;
+        playerACount-=1;
     }
-    return playerSum;
+    if(playerSum>21){
+        canHit = false;
+    }
+    */
+
+    
+    if(reduceAce(playerSum,playerACount) > 21){//超過21點將Ace算做1
+        canHit = false;
+    }
+    
+}
+   
+function stop(){
+    dealerSum = reduceAce(dealerSum, dealerACount);
+    playerSum = reduceAce(playerSum, playerACount);
+
+    canHit = false;
+    document.getElementById("backcard").src = "./cards/" + choseCard + ".png";
+
+    let message = "";
+    if (playerSum > 21) {
+        message = "You Lose!";
+    }
+    else if (dealerSum > 21) {
+        message = "You win!";
+    }
+    //both you and dealer <= 21
+    else if (playerSum == dealerSum) {
+        message = "Tie!";
+    }
+    else if (playerSum > dealerSum) {
+        message = "You Win!";
+    }
+    else if (playerSum < dealerSum) {
+        message = "You Lose!";
+    }
+
+    
+    console.log(message);
+    //document.getElementById("results").innerText = message;
+}
+
+
+
+function reduceAce(yourSum , yourAceCount) {
+    while (yourSum > 21 && yourAceCount > 0) {
+        yourSum -= 10;
+        yourAceCount -= 1;
+    }
+    return yourSum;
 }
 
 function getValue(card){
@@ -123,10 +154,13 @@ function getValue(card){
 }
 
 function checkA(card){
-    if(card[0] == "1"){
+    let data = card.split("-");
+    let value = data[0];
+    if(value == "1"){
         return 1;
     }
     else{
         return 0;
     }
+    
 }
