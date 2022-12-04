@@ -59,7 +59,7 @@ function dealCard(){
         document.getElementById("player-card").append(cardImg);
         
    }
-   console.log(getValue(choseCard));
+   console.log(playerSum);
    document.getElementById("add-card").addEventListener("click",hit);
    document.getElementById("stop-add-card").addEventListener("click",stop);
 }
@@ -70,6 +70,9 @@ function dealCard(){
 
 
 function hit(){
+    if(playerSum==21){
+        return;
+    }
     if (!canHit) {
         return;
     }
