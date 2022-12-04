@@ -77,17 +77,6 @@ function hit(){
     playerACount += checkA(card);
     document.getElementById("player-card").append(cardImg);
     //加牌
-    /*
-    while(playerSum > 21 && playerACount > 0){
-        playerSum-=10;
-        playerACount-=1;
-    }
-    if(playerSum>21){
-        canHit = false;
-    }
-    */
-
-    
     if(reduceAce(playerSum,playerACount) > 21){//超過21點將Ace算做1
         canHit = false;
     }
@@ -95,13 +84,9 @@ function hit(){
 }
    
 function stop(){
-    while(dealerSum < 17){   //發到比17大
-        let cardImg = document.createElement("img");
-        let card = deck.pop();
-        cardImg.src = "./cards/" + card + ".png";
-        dealerSum = dealerSum + getValue(card);
-        dealerACount = dealerACount + checkA(card);
-        document.getElementById("dealer-card").append(cardImg);
+    while(dealerSum < 17){   //發到比17
+        ttt();
+        
    }
     dealerSum = reduceAce(dealerSum, dealerACount);
     playerSum = reduceAce(playerSum, playerACount);
@@ -111,20 +96,20 @@ function stop(){
 
     let message = "";
     if (playerSum > 21) {
-        message = "You Lose!";
+        message = "你輸了";
     }
     else if (dealerSum > 21) {
-        message = "You win!";
+        message = "你贏了!";
     }
     //both you and dealer <= 21
     else if (playerSum == dealerSum) {
-        message = "Tie!";
+        message = "平手!";
     }
     else if (playerSum > dealerSum) {
-        message = "You Win!";
+        message = "你贏了!";
     }
     else if (playerSum < dealerSum) {
-        message = "You Lose!";
+        message = "你輸了!";
     }
 
     
@@ -167,4 +152,13 @@ function checkA(card){
         return 0;
     }
     
+}
+
+function ttt(){
+    let cardImg = document.createElement("img");
+    let card = deck.pop();
+    cardImg.src = "./cards/" + card + ".png";
+    dealerSum = dealerSum + getValue(card);
+    dealerACount = dealerACount + checkA(card);
+    document.getElementById("dealer-card").append(cardImg);
 }
