@@ -42,23 +42,16 @@ function dealCard(){
     dealerSum = dealerSum + getValue(choseCard);
     dealerACount = dealerACount + checkA(choseCard);
     //暗牌
-    while(dealerSum < 17){   //發到比17大
-        let cardImg = document.createElement("img");
-        let card = deck.pop();
-        cardImg.src = "./cards/" + card + ".png";
-        dealerSum = dealerSum + getValue(card);
-        dealerACount = dealerACount + checkA(card);
-        document.getElementById("dealer-card").append(cardImg);
-   }
-   for(let i=0; i<2; i++){//先發給玩家2張
-        let cardImg = document.createElement("img");
-        let card = deck.pop();
-        cardImg.src = "./cards/" + card + ".png";
-        playerSum = playerSum + getValue(card);
-        playerACount = playerACount + checkA(card);
-        document.getElementById("player-card").append(cardImg);
+    
+   
+    let cardImg = document.createElement("img");
+    let card = deck.pop();
+    cardImg.src = "./cards/" + card + ".png";
+    playerSum = playerSum + getValue(card);
+    playerACount = playerACount + checkA(card);
+    document.getElementById("player-card").append(cardImg);
         
-   }
+   
    console.log(playerSum);
    document.getElementById("add-card").addEventListener("click",hit);
    document.getElementById("stop-add-card").addEventListener("click",stop);
@@ -102,6 +95,14 @@ function hit(){
 }
    
 function stop(){
+    while(dealerSum < 17){   //發到比17大
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "./cards/" + card + ".png";
+        dealerSum = dealerSum + getValue(card);
+        dealerACount = dealerACount + checkA(card);
+        document.getElementById("dealer-card").append(cardImg);
+   }
     dealerSum = reduceAce(dealerSum, dealerACount);
     playerSum = reduceAce(playerSum, playerACount);
 
@@ -128,7 +129,7 @@ function stop(){
 
     
     console.log(message);
-    //document.getElementById("results").innerText = message;
+    document.getElementById("results").innerText = message;
 }
 
 
