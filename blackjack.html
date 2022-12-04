@@ -10,9 +10,9 @@
 </head>
 <body>
     
-    <nav>
+    <!-- <nav>
         <a href="blackjack.html">進入遊戲</a>
-    </nav>
+    </nav> -->
     <h1 class="title">21點遊戲</h1>
     <h2>莊家:</h2>
     <div class="cards-img" id="dealer-card">
@@ -21,14 +21,18 @@
     </div>
     <hr>
     <h2>玩家:</h2>
-    <div class="cards-img" id="player-card">
-        
+    <div  class="cards-img" id="player-card">
+    </div>
+    <div id="result">
+        <h1>you win</h1>
     </div>
     <div>
         <button type="button" id="add-card" >加牌</button>
         <button type="button" id="stop-add-card">結算</button>
-        <button type="button" id="surrender">投降</button>  <!-- 遊戲結束玩家輸了 -->
+
         <button type="button" id="newgame" onClick=window.location.reload()>新的一局</button>
+
+        <!-- <button type="button" id="surrender">投降</button>  遊戲結束玩家輸了 -->
     </div>
     
    
