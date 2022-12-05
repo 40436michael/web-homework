@@ -8,7 +8,29 @@
     <link rel="stylesheet" href="blackjack.css" />
     <script src="blackjack.js"></script>
 </head>
-<body background="https://images3.alphacoders.com/658/658737.jpg" >
+<body  >
+    <style>
+        body {
+            background-image: url(https://images3.alphacoders.com/658/658737.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        @keyframes wrapperappear{
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        .cards-img{
+            display: inline-block;
+            overflow: hidden;
+            animation:wrapperappear 2s linear;
+        }
+    </style>
     
     <!-- <nav>
         <a href="blackjack.html">進入遊戲</a>
