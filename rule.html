@@ -9,18 +9,67 @@
 </head>
 <body >
     <style>
+        @keyframes rollDown {
+	0%{
+		top: -200px;
+		transform: rotateX(-90deg);
+        opacity: 0.2;
+	}
+	25%{
+		top: -80px;
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	50%{
+		top: -80px;
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	75%{
+		top: 50px;
+		transform: rotateX(90deg);
+		opacity: 0.5;
+	}
+    100%{
+		top: -200px;
+		transform: rotateX(-90deg);
+        opacity: 0.2;
+	}}
         h1{
+            animation: rollDown 10s forwards infinite;
+            -webkit-text-stroke: 1px rgb(255, 255, 255);
             font-size: 80px;
         }
         h2{
+            -webkit-text-stroke: 0.68px rgb(255, 255, 255);
             font-size: xx-large;
         }
         body {
-            background-image: url(https://images.alphacoders.com/846/84631.jpg);
+            animation: slidePicture 10s forwards infinite;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
+        }
+        @keyframes slidePicture{
+            0%{
+                background-image: url(https://images.alphacoders.com/846/84631.jpg);
+            }
+            20%{
+                background-image: url(https://images.alphacoders.com/692/692362.png);
+            }
+            40%{
+                background-image: url(https://images6.alphacoders.com/710/710132.png);
+            }
+            60%{
+                background-image: url(https://images8.alphacoders.com/673/673189.png);
+            }
+            80%{
+                background-image: url(https://images5.alphacoders.com/508/508247.jpg);
+            }
+            100%{
+                background-image: url(https://images.alphacoders.com/846/84631.jpg);
+            }
         }
     </style>
     <nav>

@@ -9,31 +9,37 @@
 </head>
 <body>
     <style>
-        @keyframes rollDown {
+    @keyframes rollDown {
 	0%{
 		top: -200px;
 		transform: rotateX(-90deg);
+        opacity: 0.2;
 	}
 	25%{
-		top: -74px;
+		top: -80px;
 		transform: rotateX(0deg);
 		opacity: 1;
 	}
 	50%{
-		top: -74px;
+		top: -80px;
 		transform: rotateX(0deg);
 		opacity: 1;
 	}
 	75%{
 		top: 50px;
-		transform: rotateX(30deg);
-		opacity: 0;
+		transform: rotateX(90deg);
+		opacity: 0.5;
+	}
+    100%{
+		top: -200px;
+		transform: rotateX(-90deg);
+        opacity: 0.2;
 	}
 }
         h1{
             -webkit-text-stroke: 1px rgb(255, 255, 255);
             font-size: 80px;
-            animation: rollDown 10s forwards;
+            animation: rollDown 10s forwards infinite;
         }
         body {
             animation: slidePicture 10s forwards infinite;
@@ -44,7 +50,7 @@
             background-size: cover;
         }
         h2{
-            -webkit-text-stroke: 1px rgb(255, 255, 255);
+            -webkit-text-stroke: 0.68px rgb(255, 255, 255);
             font-size: xx-large;
         }
         @keyframes slidePicture{
