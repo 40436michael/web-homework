@@ -11,7 +11,8 @@ let choseCard;
 var deck=[];
 
 var canHit = true;
-var ddd = 2000;
+var ddd = 1000;
+
 
 window.onload=function(){
     buildDeck();
@@ -111,10 +112,9 @@ function stop(){
     else if (playerSum < dealerSum) {
         message = "你輸了!";
     }
-
-    
     console.log(message);
-    document.getElementById("results").innerText = message;
+    setTimeout(function(){document.getElementById("results").innerText = message;},5000);
+    
 }
 
 
@@ -161,7 +161,7 @@ function ttt(){
     dealerSum = dealerSum + getValue(card);
     dealerACount = dealerACount + checkA(card);
     setTimeout(function(){document.getElementById("dealer-card").append(cardImg);},ddd);
-    ddd +=2000;
+    ddd +=1000;
     //document.getElementById("dealer-card").append(cardImg);
 }
 
