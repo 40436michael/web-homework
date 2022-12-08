@@ -113,7 +113,7 @@ function stop(){
         message = "你輸了!";
     }
     console.log(message);
-    setTimeout(function(){document.getElementById("results").innerText = message;},4000);
+    setTimeout(function(){document.getElementById("results").innerText = message;},3000);
     
 }
 
