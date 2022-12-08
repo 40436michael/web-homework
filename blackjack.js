@@ -11,6 +11,7 @@ let choseCard;
 var deck=[];
 
 var canHit = true;
+var ddd = 2000;
 
 window.onload=function(){
     buildDeck();
@@ -84,9 +85,8 @@ function hit(){
 }
    
 function stop(){
-    while(dealerSum < 17){   //發到比17
+    while(dealerSum < 17){
         ttt();
-        
    }
     dealerSum = reduceAce(dealerSum, dealerACount);
     playerSum = reduceAce(playerSum, playerACount);
@@ -160,5 +160,11 @@ function ttt(){
     cardImg.src = "./cards/" + card + ".png";
     dealerSum = dealerSum + getValue(card);
     dealerACount = dealerACount + checkA(card);
-    document.getElementById("dealer-card").append(cardImg);
+    setTimeout(function(){document.getElementById("dealer-card").append(cardImg);},ddd);
+    ddd +=2000;
+    //document.getElementById("dealer-card").append(cardImg);
 }
+
+
+  
+  
