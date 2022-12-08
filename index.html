@@ -9,12 +9,39 @@
 </head>
 <body>
     <style>
+        h1{
+            font-size: 80px;
+        }
         body {
-            background-image: url(https://images7.alphacoders.com/736/736462.png);
+            animation: slidePicture 10s forwards infinite;
+            
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
+        }
+        h2{
+            font-size: xx-large;
+        }
+        @keyframes slidePicture{
+            0%{
+                background-image: url(https://images7.alphacoders.com/736/736462.png);
+            }
+            20%{
+                background-image: url(https://images2.alphacoders.com/564/564835.jpg);
+            }
+            40%{
+                background-image: url(https://images2.alphacoders.com/727/72732.png);
+            }
+            60%{
+                background-image: url(https://images.alphacoders.com/736/736461.png);
+            }
+            80%{
+                background-image: url(https://images3.alphacoders.com/219/219125.jpg);
+            }
+            100%{
+                background-image: url(https://images7.alphacoders.com/736/736462.png);
+            }
         }
     </style>
     <nav>
@@ -22,10 +49,10 @@
         <a href="rule.html">規則</a>
         <a href="blackjack.html">進入遊戲</a>
     </nav>
-    <h1 class="title">21點首頁</h1>
-    <h2>第12組-Hello World<br>
+    <h1 class="title" >21點首頁</h1>
+    <h2><b>第12組-Hello World<br>
         Web專題-21點<br>
         小組成員:闕嘉成、唐健桔、王秉序<br>
-    </h2>
+    </b></h2>
 </body>
 </html>

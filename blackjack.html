@@ -28,11 +28,31 @@
         .cards-img{
             display: inline-block;
             overflow: hidden;
-            animation:wrapperappear 2s linear;
+            animation:wrapperappear 3s linear;
         }
         #results{
+            font-size:xx-large;
             font-weight: bold;
+            --color-1: #ec2525;
+            --color-2: #f09814;
+            --color-3: #ddff00;
+            --color-4: #00fe59;
+            --color-5: #6eb2cb;
+            --color-6: #796ecb;
+            --color-7: #ab27bd;
+            animation: color-animation 4s linear infinite;
+
         }
+        @keyframes color-animation {
+    0%    {color: var(--color-1)}
+    14%   {color: var(--color-1)}
+    28%   {color: var(--color-2)}
+    42%   {color: var(--color-3)}
+    56%   {color: var(--color-4)}
+    70%   {color: var(--color-5)}
+    85%  {color: var(--color-6)}
+    100%  {color: var(--color-7)}
+}
     </style>
     
     <!-- <nav>
