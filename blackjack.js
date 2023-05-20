@@ -164,7 +164,3 @@ function ttt(){
     ddd +=1000;
     //document.getElementById("dealer-card").append(cardImg);
 }
-
-
-  
-  
